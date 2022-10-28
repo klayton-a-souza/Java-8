@@ -1,15 +1,12 @@
 package java8;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class OrdenaStrings {
 
 	public static void main(String[] args) {
 
-		// Maneira antiga
 		List<String> personagens = new ArrayList<>();
 
 		personagens.add("Xiangling");
@@ -17,22 +14,9 @@ public class OrdenaStrings {
 		personagens.add("Sucrose");
 		personagens.add("Bennett");
 
-		// Codigo 1.4: Ordenando com o método sort
-		Comparator<String> comparador = new ComparadorPorTamanho();
-		//Collections.sort(personagens, comparador);
+		personagens.sort((p1, p2) -> Integer.compare(p1.length(), p2.length()));
+		personagens.forEach(personagem -> System.out.println(personagem));
 
-		// Nova maneira
-		// Codigo 1.4: Ordenando com o método sort
-		personagens.sort(comparador);
-		
-		// Maneira antiga
-//		for (String nome : personagens) {
-//			System.out.println(nome);
-//		}
-		
-		// Maneira nova
-		personagens.forEach(personagem -> {System.out.println(personagem);});
-		
 		System.out.println(personagens);
 
 	}
